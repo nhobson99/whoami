@@ -1,31 +1,128 @@
 <head>
     <title>Noah Quigley-Hobson</title>
-    <meta http-equiv="refresh" content="1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- <meta http-equiv="refresh" content="5"> -->
     <style>
-        h1 {
-            border-bottom: 2px solid rgb(60, 60, 60);
-            background: linear-gradient(rgb(172, 0, 187), rgb(12, 206, 255));
+        body {
+            background: linear-gradient(rgb(0, 0, 0), rgb(23, 23, 23));
+            color: white;
+            font-family: "Space Mono", monospace;
         }
 
         #name {
-            text-shadow: 1px white;
+            color: white;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        a {
+            color: blue;
+        }
+
+        a:visited {
+            color: violet;
+        }
+
+        a[href=""] {
+            color: black;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .typein {
+            animation: animateTyping 1s steps(25);
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 24.9ch;
+        }
+
+        .delay {
+            animation: popin 1.25s linear;
+            opacity: 100%;
+        }
+
+        @keyframes popin {
+            0% {
+                opacity: 0%;
+            }
+
+            100% {
+                opacity: 0%;
+            }
+        }
+
+        @keyframes animateTyping {
+            0% {
+                max-width: 2ch;
+            }
+
+            75% {
+                max-width: 27ch;
+            }
+
+            99% {
+                max-width: 27ch;
+            }
+
+            100% {
+                max-width: 24.9ch;
+            }
+        }
+
+        .blinking {
+            animation: animateBlinker 1s linear infinite;
+        }
+
+        @keyframes animateBlinker {
+            0% {
+                opacity: 0%;
+            }
+
+            50% {
+                opacity: 100%;
+            }
+
+            100% {
+                opacity: 0%;
+            }
+        }
+
+        th {
+            border: 1px solid white;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1 id="name">Noah Quigley-Hobson</h1>
-        <h2>Personal Webpage</h2>
+        <div id="name">
+            <h1 class="typein">$ Noah Quigley-Hobson -MS_</h1>
+        </div>
     </header>
 
-    <h3 id="bio">Bio</h3>
-    <p>This page is to give you a better idea of who I am, a Master of Computer Science. I achieved my undergraduate degree at the University of Tennessee, Knoxville in 2021, and my graduate degree from Purdue University, West Lafayette in 2025.</p>
+    <div class="delay">
+        <h2>Personal Webpage</h2>
+        <h3 id="bio">Bio</h3>
+        <p style="color: green">This page is to give you a better idea of who I am, a Master of Computer Science. I achieved my undergraduate
+            degree at the University of Tennessee, Knoxville in 2021, and my graduate degree from Purdue University, West
+            Lafayette in 2025.</p>
 
-    <p>I currently work as a Project Engineer under Dr. Malshe in the Center for In-Space Manufacturing (CISM) doing Digital Transformation.</p>
+        <p>I currently work as a Project Engineer under Dr. Malshe in the Center for In-Space Manufacturing (CISM) doing
+            Digital Transformation.</p>
 
-    <script>
-        name = document.GetElementById("name");
-        name.innerText = "asdf lol"
-    </script>
+        <div class="show-hide">
+            <h1 style="display: inline">$ </h1>
+            <table style="display: inline">
+                <tr><th><a onclick="document.getElementById('about').visible = true">About Me</a></th><th><a onclick="alert('hello')">CISM</a></th></tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="about" style="visibility: hidden;">
+        <h3>About Me</h3>
+        <p>This would be a paragraph about me. If I had one.</p>
+    </div>
 </body>
