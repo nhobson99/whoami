@@ -6,10 +6,19 @@
     <!-- <meta http-equiv="refresh" content="5"> -->
     <style>
         body {
+            padding: -2px;
+            overflow: scroll;
+        }
+
+        .terminal {
             background: linear-gradient(rgb(0, 0, 0), rgb(23, 23, 23));
             color: white;
             font-family: "Space Mono", monospace;
-            justify-content: left;
+            text-align: justify;
+            border: 2px solid silver;
+            border-radius: 10px;
+            padding: 2ch;
+            margin: 2ch;
         }
 
         #name {
@@ -20,11 +29,11 @@
         }
 
         a {
-            color: blue;
+            color: white;
         }
 
         a:visited {
-            color: violet;
+            color: purple;
         }
 
         a[href=""] {
@@ -34,10 +43,9 @@
         }
 
         .typein {
-            animation: animateTyping 1s steps(25);
+            animation: animateTyping 1s steps(23);
             white-space: nowrap;
             overflow: hidden;
-            max-width: 24.9ch;
         }
 
         .delay {
@@ -60,16 +68,8 @@
                 max-width: 2ch;
             }
 
-            75% {
-                max-width: 27ch;
-            }
-
-            99% {
-                max-width: 27ch;
-            }
-
             100% {
-                max-width: 24.9ch;
+                max-width: 25ch;
             }
         }
 
@@ -98,32 +98,50 @@
 </head>
 
 <body>
-    <header>
-        <div id="name">
-            <h1 class="typein">$ Noah Quigley-Hobson -MS_</h1>
+    <div class="terminal" id="terminal">
+        <header>
+            <div id="name">
+                <h1 class="typein">$ Noah Quigley-Hobson -MS</h1>
+            </div>
+        </header>
+
+        <div class="delay">
+            <h2>Personal Webpage</h2>
+            <h3 id="bio">Bio</h3>
+            <p style="color: green">This page is to give you a better idea of who I am, a Master of Computer Science. I achieved my undergraduate
+                degree at the University of Tennessee, Knoxville in 2021, and my graduate degree from Purdue University, West
+                Lafayette in 2025.</p>
+
+            <p>I currently work as a Project Engineer under Dr. Malshe in the Center for In-Space Manufacturing (CISM) doing
+                Digital Transformation.</p>
+
+            <div class="show-hide">
+                <h1 style="display: inline">$ </h1>
+                <table style="display: inline">
+                    <tr><th><a onclick="updateContent('about')">About Me</a></th><th><a onclick="updateContent('cism')">CISM</a></th></tr>
+                </table>
+            </div>
         </div>
-    </header>
 
-    <div class="delay">
-        <h2>Personal Webpage</h2>
-        <h3 id="bio">Bio</h3>
-        <p style="color: green">This page is to give you a better idea of who I am, a Master of Computer Science. I achieved my undergraduate
-            degree at the University of Tennessee, Knoxville in 2021, and my graduate degree from Purdue University, West
-            Lafayette in 2025.</p>
-
-        <p>I currently work as a Project Engineer under Dr. Malshe in the Center for In-Space Manufacturing (CISM) doing
-            Digital Transformation.</p>
-
-        <div class="show-hide">
-            <h1 style="display: inline">$ </h1>
-            <table style="display: inline">
-                <tr><th><a onclick="document.getElementById('about').visible = true">About Me</a></th><th><a onclick="alert('hello')">CISM</a></th></tr>
-            </table>
+        <div class="hide" id="about" hidden="true">
+            <h3>About Me</h3>
+            <p>This would be a paragraph about me. If I had one.</p>
         </div>
-    </div>
 
-    <div id="about" style="visibility: hidden;">
-        <h3>About Me</h3>
-        <p>This would be a paragraph about me. If I had one.</p>
+        <div class="hide" id="cism" hidden="true">
+            <h3>CISM</h3>
+            <p>This would be a paragraph about CISM. If I had one.</p>
+        </div>
     </div>
 </body>
+
+<script type=>
+    function updateContent(id) {
+        hidden = document.getElementsByClassName("hide");
+        Array.prototype.forEach.call(hidden, (element) => {
+            element.hidden = true;
+        });
+        elem = document.getElementById(id);
+        elem.hidden = false;
+    }
+</script>
