@@ -2,21 +2,21 @@
     <title>Noah Quigley-Hobson</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <!-- <meta http-equiv="refresh" content="5"> -->
     <style>
         body {
             padding: -2px;
             overflow: scroll;
-            background: linear-gradient(rgb(180, 180, 180), rgb(128, 128, 128));
+            background: radial-gradient(rgb(180, 180, 180), rgb(255, 255, 255));
         }
 
         .terminal {
-            background: linear-gradient(rgb(0, 0, 0), rgb(23, 23, 23));
+            background: radial-gradient(rgb(0, 0, 0), rgb(31, 31, 31));
             color: white;
-            font-family: "Space Mono", monospace;
-            text-align: justify;
-            border: 2px solid silver;
+            font-family: monospace;
+            border: 2px solid rgb(3, 78, 93);
             border-radius: 10px;
             padding: 2ch;
             margin: 2ch;
@@ -44,8 +44,21 @@
         }
 
         .typein {
-            animation: animateTyping 1s steps(23);
+            animation: animateTyping 1s ease-in-out;
             white-space: nowrap;
+            overflow: hidden;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .delay-typein {
+            animation: delayAnimateTyping var(--t) ease-in-out;
+            animation-delay: var(--d);
+            animation-fill-mode: both;
+            word-wrap: normal;
             overflow: hidden;
         }
 
@@ -66,11 +79,25 @@
 
         @keyframes animateTyping {
             0% {
-                max-width: 2ch;
+                max-width: 0%;
+            }
+
+            99% {
+                max-width: 100%;
             }
 
             100% {
-                max-width: 25ch;
+                max-width: none;
+            }
+        }
+
+        @keyframes delayAnimateTyping {
+            0% {
+                max-height: 0ch;
+            }
+
+            100% {
+                max-height: 100ch;
             }
         }
 
@@ -106,30 +133,29 @@
             </div>
         </header>
 
-        <div class="delay">
+        <div class="delay-typein" style="--t: 1.25s; --d: 1s">
             <h2>Personal Webpage</h2>
             <h3 id="bio">Bio</h3>
-            <p style="color: green">This page is to give you a better idea of who I am, a Master of Computer Science. I achieved my undergraduate
-                degree at the University of Tennessee, Knoxville in 2021, and my graduate degree from Purdue University, West
-                Lafayette in 2025.</p>
-
-            <p>I currently work as a Project Engineer under Dr. Malshe in the Center for In-Space Manufacturing (CISM) doing
-                Digital Transformation.</p>
+            <pre
+                style="color: green">This page is to give you a better idea of who I am, a Master of Computer Science. I achieved my undergraduate degree at the University of Tennessee, Knoxville in 2021, and my graduate degree from Purdue University, West Lafayette in 2025. I currently work as a Project Engineer under Dr. Malshe in the Center for In-Space Manufacturing (CISM) doing Digital Transformation.</pre>
 
             <div class="show-hide">
                 <h1 style="display: inline">$ </h1>
                 <table style="display: inline">
-                    <tr><th><a onclick="updateContent('about')">About Me</a></th><th><a onclick="updateContent('cism')">CISM</a></th></tr>
+                    <tr>
+                        <th><a onclick="updateContent('about')">About Me</a></th>
+                        <th><a onclick="updateContent('cism')">CISM</a></th>
+                    </tr>
                 </table>
             </div>
         </div>
 
-        <div class="hide" id="about" hidden="true">
+        <div class="hide delay-typein" id="about" hidden="true" style="--t: 0.5s; --d: 0s;">
             <h3>About Me</h3>
             <p>This would be a paragraph about me. If I had one.</p>
         </div>
 
-        <div class="hide" id="cism" hidden="true">
+        <div class="hide delay-typein" id="cism" hidden="true" style="--t: 0.5s; --d: 0s;">
             <h3>CISM</h3>
             <p>This would be a paragraph about CISM. If I had one.</p>
         </div>
