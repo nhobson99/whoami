@@ -7,13 +7,10 @@
     <!-- <meta http-equiv="refresh" content="5"> -->
     <style>
         body {
-            text-size-adjust: 200% !important;
-        }
-
-        body {
             padding: -2px;
-            overflow: scroll;
+            overflow-x: hidden;
             background: rgb(28, 28, 28);
+            zoom: 200%;
         }
 
         h2 {
@@ -138,13 +135,13 @@
     <div class="terminal" id="terminal">
         <header>
             <div id="name">
-                <h1 class="typein">$ Noah Quigley-Hobson -MS</h1>
+                <pre class="typein" style="color: white">$ Noah Quigley-Hobson -MS</pre>
             </div>
         </header>
 
         <div class="delay-typein" style="--t: 1.25s; --d: 1s">
-            <h2>Personal Webpage</h2>
-            <h3 id="bio">Bio</h3>
+            <pre style="color: rgb(113, 113, 255)">Personal Webpage</pre>
+            <pre id="bio" style="color: white">Bio</pre>
             <pre>This page is to give you a better idea of who I am as a Master of Computer Science in Human-Computer Interaction (HCI). I achieved my undergraduate degree at the University of Tennessee, Knoxville in 2021, and my graduate degree from Purdue University, West Lafayette in 2025. I currently work as a Project Engineer under Dr. Malshe in the Center for In-Space Manufacturing (CISM) doing Digital Transformation.</pre>
 
             <div class="show-hide">
@@ -158,13 +155,13 @@
         </div>
 
         <div class="delay-typein" id="about" hidden="true" style="--t: 0.5s; --d: 0s;">
-            <h3>About Me</h3>
-            <p>This would be a paragraph about me. If I had one.</p>
+            <pre style="color: white">About Me</pre>
+            <pre>This would be a paragraph about me. If I had one.</pre>
         </div>
 
         <div class="delay-typein" id="cism" hidden="true" style="--t: 0.5s; --d: 0s;">
-            <h3>CISM</h3>
-            <p>This would be a paragraph about CISM. If I had one.</p>
+            <pre style="color: white">CISM</pre>
+            <pre>This would be a paragraph about CISM. If I had one.</pre>
         </div>
     </div>
 </body>
